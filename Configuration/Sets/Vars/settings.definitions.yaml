@@ -1,0 +1,127 @@
+categories:
+  vars:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:category.vars'
+  t3sVars:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:category.t3sVars'
+
+settings:
+  vars.company:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.company'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.company.description'
+    category: vars
+    type: string
+    default: ''
+  vars.profession:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.profession'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.profession.description'
+    category: vars
+    type: string
+    default: ''
+  vars.person:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.person'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.person.description'
+    category: vars
+    type: string
+    default: ''
+  vars.street:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.street'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.street.description'
+    category: vars
+    type: string
+    default: ''
+  vars.addressAddition:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.addressAddition'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.addressAddition.description'
+    category: vars
+    type: string
+    default: ''
+  vars.zip:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.zip'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.zip.description'
+    category: vars
+    type: string
+    default: ''
+  vars.city:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.city'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.city.description'
+    category: vars
+    type: string
+    default: ''
+  vars.country:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.country'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.country.description'
+    category: vars
+    type: string
+    default: ''
+  vars.phone:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.phone'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.phone.description'
+    category: vars
+    type: string
+    default: ''
+  vars.fax:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.fax'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.fax.description'
+    category: vars
+    type: string
+    default: ''
+  vars.email:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.email'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.email.description'
+    category: vars
+    type: string
+    default: ''
+  vars.website:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.website'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.website.description'
+    category: vars
+    type: string
+    default: ''
+  vars.vatId:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.vatId'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.vatId.description'
+    category: vars
+    type: string
+    default: ''
+  vars.maps:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.maps'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.maps.description'
+    category: vars
+    type: string
+    default: ''
+  t3sVars.telKeys:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.telKeys'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.telKeys.description'
+    category: t3sVars
+    type: string
+    default: 'phone,fax'
+  t3sVars.mailKeys:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.mailKeys'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.mailKeys.description'
+    category: t3sVars
+    type: string
+    default: 'email'
+  t3sVars.urlKeys:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.urlKeys'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.urlKeys.description'
+    category: t3sVars
+    type: string
+    default: 'website'
+  t3sVars.mapsEmbed:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.mapsEmbed'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.mapsEmbed.description'
+    category: t3sVars
+    type: string
+    default: ''
+  t3sVars.mapsConsent:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.mapsConsent'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.mapsConsent.description'
+    category: t3sVars
+    type: bool
+    default: true
+  t3sVars.icons:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.icons'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.icons.description'
+    category: t3sVars
+    type: bool
+    default: true

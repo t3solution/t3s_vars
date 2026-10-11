@@ -1,0 +1,46 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:comment>Building blocks of the address, used by all layouts</f:comment>
+
+<f:section name="Identity">
+<f:if condition="{vars.profession} || {vars.person}">
+	<div class="t3s-address__group t3s-address__identity">
+		<f:if condition="{vars.profession}"><span class="t3s-address__profession" itemprop="description">{vars.profession}</span><br></f:if>
+		<f:if condition="{vars.person}"><strong class="t3s-address__person" itemprop="founder" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{vars.person}</span></strong></f:if>
+	</div>
+</f:if>
+</f:section>
+
+<f:section name="Postal">
+<f:if condition="{vars.company} || {vars.street} || {vars.addressAddition} || {vars.zip} || {vars.city} || {vars.country}">
+	<div class="t3s-address__group t3s-address__postal">
+		<f:if condition="{vars.company}"><strong class="t3s-address__company" itemprop="name">{vars.company}</strong><br></f:if>
+		<span itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+			<f:if condition="{vars.street}"><span itemprop="streetAddress">{vars.street}</span><br></f:if>
+			<f:if condition="{vars.addressAddition}"><span class="t3s-address__addition">{vars.addressAddition}</span><br></f:if>
+			<f:if condition="{vars.zip}"><span itemprop="postalCode">{vars.zip}</span>&nbsp;</f:if><f:if condition="{vars.city}"><span itemprop="addressLocality">{vars.city}</span></f:if>
+			<f:if condition="{vars.country}"><br><span itemprop="addressCountry">{vars.country}</span></f:if>
+		</span>
+	</div>
+</f:if>
+</f:section>
+
+<f:section name="Contact">
+<f:if condition="{vars.phone} || {vars.fax} || {vars.email} || {vars.website} || ({withRoute} && {varsConfig.mapsUrl})">
+	<div class="t3s-address__group t3s-address__contact">
+		<f:if condition="{vars.phone}"><div class="t3s-address__item"><f:render section="Label" arguments="{icon: varsIcons.phone, key: 'phone'}" /><span itemprop="telephone">{varsLinked.phone -> f:format.raw()}</span></div></f:if>
+		<f:if condition="{vars.fax}"><div class="t3s-address__item"><f:render section="Label" arguments="{icon: varsIcons.fax, key: 'fax'}" /><span itemprop="faxNumber">{varsLinked.fax -> f:format.raw()}</span></div></f:if>
+		<f:if condition="{vars.email}"><div class="t3s-address__item"><f:render section="Label" arguments="{icon: varsIcons.email, key: 'email'}" /><span itemprop="email">{varsLinked.email -> f:format.raw()}</span></div></f:if>
+		<f:if condition="{vars.website}"><div class="t3s-address__item"><f:render section="Label" arguments="{icon: varsIcons.website, key: 'website'}" /><span itemprop="url">{varsLinked.website -> f:format.raw()}</span></div></f:if>
+		<f:if condition="{withRoute} && {varsConfig.mapsUrl}"><div class="t3s-address__item"><f:if condition="{varsIcons.maps}">{varsIcons.maps -> f:format.raw()} </f:if><a href="{varsConfig.mapsUrl}" class="t3s-address__maps" target="_blank" rel="noopener"><f:translate key="LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:address.route" /></a></div></f:if>
+	</div>
+</f:if>
+</f:section>
+
+<f:section name="Vat">
+<f:if condition="{vars.vatId}">
+	<div class="t3s-address__group t3s-address__vat"><f:translate key="LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:address.vatId" />: <span itemprop="vatID">{vars.vatId}</span></div>
+</f:if>
+</f:section>
+
+<f:section name="Label"><f:if condition="{icon}"><f:then>{icon -> f:format.raw()} </f:then><f:else><f:translate key="LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:address.{key}" />: </f:else></f:if></f:section>
+</html>

@@ -1,0 +1,17 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:variable name="lll" value="LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:" />
+<div class="t3s-contact__map">
+	<f:if condition="{varsConfig.mapsConsent}">
+		<f:then>
+			<f:asset.script identifier="t3s-vars-maps" src="EXT:t3s_vars/Resources/Public/JavaScript/maps-consent.js" defer="1" />
+			<div class="t3s-contact__consent" data-t3s-map-src="{varsConfig.mapsEmbed}" data-t3s-map-title="{f:translate(key: '{lll}map.title')}">
+				<p><f:translate key="{lll}map.notice" /></p>
+				<button type="button" class="t3s-contact__consent-btn"><f:translate key="{lll}map.load" /></button>
+			</div>
+		</f:then>
+		<f:else>
+			<iframe src="{varsConfig.mapsEmbed}" title="{f:translate(key: '{lll}map.title')}" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</f:else>
+	</f:if>
+</div>
+</html>

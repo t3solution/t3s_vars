@@ -1,0 +1,2 @@
+# cat=basic; type=boolean; label=RTE: Add the dropdown "Variables" to the toolbar of every CKEditor 5 preset
+rteButton = 1

@@ -1,0 +1,19 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  T3S\T3sVars\:
+    resource: '../Classes/*'
+
+  # used via GeneralUtility::makeInstance() / TypoScript userFunc
+  T3S\T3sVars\Service\VariableService:
+    public: true
+
+  T3S\T3sVars\UserFunc\ParseFuncReplacer:
+    public: true
+    shared: false
+
+  T3S\T3sVars\DataProcessing\VariablesProcessor:
+    public: true

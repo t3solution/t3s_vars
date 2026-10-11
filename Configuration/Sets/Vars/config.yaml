@@ -1,0 +1,4 @@
+name: t3s/vars
+label: 'T3S Vars - Globale Variablen'
+optionalDependencies:
+  - typo3/fluid-styled-content

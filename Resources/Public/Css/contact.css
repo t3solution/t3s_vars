@@ -1,0 +1,228 @@
+/* EXT:t3s_vars – content element "Address" */
+
+/* address blocks (all layouts) – spacing adjustable per site */
+.t3s-address {
+  --t3s-address-gap: 1.5rem;
+  --t3s-address-item-gap: 1rem;
+  --t3s-address-vat-gap: 3rem;
+  font-style: normal;
+  line-height: 1.6;
+}
+
+.t3s-address__group {
+  margin-bottom: var(--t3s-address-gap);
+}
+
+.t3s-address__group:last-child {
+  margin-bottom: 0;
+}
+
+.t3s-address__item + .t3s-address__item {
+  margin-top: var(--t3s-address-item-gap);
+}
+
+.t3s-address__vat {
+  margin-top: var(--t3s-address-vat-gap);
+}
+
+.t3s-address .t3s-icon {
+  margin-right: .5rem;
+}
+
+/* icon and value stay on one line */
+.t3s-address--icons .t3s-address__item {
+  display: flex;
+  align-items: center;
+}
+
+.t3s-address--icons .t3s-icon {
+  flex-shrink: 0;
+}
+
+/* keep phone numbers on one line */
+.t3s-address [itemprop="telephone"],
+.t3s-address [itemprop="faxNumber"] {
+  white-space: nowrap;
+}
+
+/* SVG icons work without the iconpack/Font Awesome CSS */
+.t3s-address svg.t3s-icon {
+  width: 1.25em;
+  height: 1em;
+  vertical-align: -.125em;
+  overflow: visible;
+}
+
+/* layouts "split" and "compactmap" – colors derive from the surrounding text color (light and dark mode) */
+.t3s-contact,
+.t3s-address-map {
+  --t3s-contact-primary: currentColor;
+  --t3s-contact-accent: var(--bs-link-color, var(--bs-primary, #2563eb));
+  --t3s-contact-muted: color-mix(in srgb, currentColor 72%, transparent);
+  --t3s-contact-bg-light: color-mix(in srgb, currentColor 6%, transparent);
+  --t3s-contact-btn-bg: var(--bs-primary, #2563eb);
+  --t3s-contact-btn-color: #fff;
+}
+
+.t3s-contact {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+/* layout "compactmap": map below the address */
+.t3s-address-map {
+  margin-top: 1.5rem;
+}
+
+.t3s-address-map .t3s-contact__map {
+  border-radius: .5rem;
+  overflow: hidden;
+}
+
+@media (min-width: 992px) {
+  .t3s-contact--map {
+    grid-template-columns: 1fr 1fr;
+    min-height: 600px;
+  }
+}
+
+.t3s-contact__info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 540px;
+  margin: 0 auto;
+  padding: var(--t3s-contact-padding, 2rem);
+}
+
+@media (min-width: 992px) {
+  .t3s-contact--map .t3s-contact__info {
+    margin-right: 0;
+  }
+}
+
+.t3s-contact__subheading {
+  margin-bottom: .5rem;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--t3s-contact-accent);
+}
+
+.t3s-contact__title {
+  margin: 0 0 2.5rem;
+  font-size: 2.5rem;
+  letter-spacing: -.02em;
+  color: var(--t3s-contact-primary);
+}
+
+.t3s-contact__nap {
+  --t3s-address-vat-gap: var(--t3s-address-gap);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  font-style: normal;
+}
+
+@media (min-width: 576px) {
+  .t3s-contact__nap {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* muted text lines; labels, person and company keep the full text color */
+.t3s-contact__block .t3s-address__profession,
+.t3s-contact__block [itemprop="address"],
+.t3s-contact__block .t3s-address__vat,
+.t3s-contact__block .t3s-address__contact {
+  color: var(--t3s-contact-muted);
+}
+
+.t3s-contact__label {
+  display: block;
+  margin-bottom: .75rem;
+  color: var(--t3s-contact-primary);
+}
+
+.t3s-contact__block .t3s-address__person,
+.t3s-contact__block .t3s-address__company {
+  color: var(--t3s-contact-primary);
+}
+
+.t3s-contact__block a {
+  color: var(--t3s-contact-accent);
+  text-decoration: underline;
+  text-underline-offset: .2em;
+  text-decoration-thickness: 1px;
+  transition: color .2s ease;
+}
+
+.t3s-contact__block a:hover,
+.t3s-contact__block a:focus-visible {
+  color: var(--t3s-contact-primary);
+}
+
+.t3s-contact a.t3s-contact__maps-btn {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  gap: .75rem;
+  padding: 1rem 2rem;
+  border-radius: .5rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--t3s-contact-btn-color);
+  background-color: var(--t3s-contact-btn-bg);
+  transition: transform .2s ease, filter .2s ease;
+}
+
+.t3s-contact a.t3s-contact__maps-btn:hover,
+.t3s-contact a.t3s-contact__maps-btn:focus-visible {
+  color: var(--t3s-contact-btn-color);
+  filter: brightness(1.12);
+  transform: translateY(-2px);
+}
+
+.t3s-contact__map {
+  width: 100%;
+  min-height: 350px;
+  background-color: var(--t3s-contact-bg-light);
+}
+
+.t3s-contact__map iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 350px;
+  border: 0;
+}
+
+.t3s-contact__consent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  height: 100%;
+  min-height: 350px;
+  padding: 2rem;
+  text-align: center;
+  color: var(--t3s-contact-muted);
+}
+
+.t3s-contact__map .t3s-contact__consent-btn {
+  padding: .75rem 1.5rem;
+  border: 0;
+  border-radius: .5rem;
+  font-weight: 600;
+  color: var(--t3s-contact-btn-color);
+  background-color: var(--t3s-contact-btn-bg);
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .t3s-contact a.t3s-contact__maps-btn { transition: none; }
+  .t3s-contact a.t3s-contact__maps-btn:hover { transform: none; }
+}

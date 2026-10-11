@@ -1,0 +1,39 @@
+<T3DataStructure>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <sheetTitle>LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:field.layout</sheetTitle>
+                <type>array</type>
+                <el>
+                    <layout>
+                        <label>LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:field.layout</label>
+                        <description>LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:field.layout.description</description>
+                        <config>
+                            <type>select</type>
+                            <renderType>selectSingle</renderType>
+                            <items>
+                                <numIndex index="0">
+                                    <label>LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:field.layout.compact</label>
+                                    <value>compact</value>
+                                </numIndex>
+                                <numIndex index="1">
+                                    <label>LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:field.layout.compactmap</label>
+                                    <value>compactmap</value>
+                                </numIndex>
+                                <numIndex index="2">
+                                    <label>LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:field.layout.split</label>
+                                    <value>split</value>
+                                </numIndex>
+                                <numIndex index="3">
+                                    <label>LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:field.layout.splitnomap</label>
+                                    <value>splitnomap</value>
+                                </numIndex>
+                            </items>
+                            <default>compact</default>
+                        </config>
+                    </layout>
+                </el>
+            </ROOT>
+        </sDEF>
+    </sheets>
+</T3DataStructure>

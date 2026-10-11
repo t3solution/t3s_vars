@@ -1,0 +1,12 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+<f:section name="Main">
+<f:render partial="T3sVars/Address" arguments="{_all}" />
+<f:if condition="{varsConfig.mapsEmbed}">
+	<f:asset.css identifier="t3s-vars-contact" href="EXT:t3s_vars/Resources/Public/Css/contact.css" />
+	<div class="t3s-address-map">
+		<f:render partial="T3sVars/Map" arguments="{varsConfig: varsConfig}" />
+	</div>
+</f:if>
+</f:section>
+</html>

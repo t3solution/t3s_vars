@@ -1,0 +1,56 @@
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+<f:layout name="Default" />
+
+<f:comment>Header is rendered inside the left column</f:comment>
+<f:section name="Header"></f:section>
+
+<f:section name="Main">
+<f:variable name="lll" value="LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:" />
+<f:asset.css identifier="t3s-vars-contact" href="EXT:t3s_vars/Resources/Public/Css/contact.css" />
+<f:comment>layout "splitnomap" never shows the map</f:comment>
+<f:variable name="showMap" value="0" />
+<f:if condition="{varsConfig.mapsEmbed} && {t3sVarsLayout} != 'splitnomap'">
+	<f:variable name="showMap" value="1" />
+</f:if>
+
+<section class="t3s-contact{f:if(condition: showMap, then: ' t3s-contact--map')}">
+	<div class="t3s-contact__info">
+		<f:if condition="{data.subheader}">
+			<span class="t3s-contact__subheading">{data.subheader}</span>
+		</f:if>
+		<f:if condition="{data.header} && {data.header_layout} != 100">
+			<h2 class="t3s-contact__title">{data.header}</h2>
+		</f:if>
+
+		<address class="t3s-contact__nap t3s-address{f:if(condition: varsIcons, then: ' t3s-address--icons')}" itemscope itemtype="https://schema.org/Organization">
+			<f:if condition="{vars.profession} || {vars.person} || {vars.company} || {vars.street} || {vars.addressAddition} || {vars.zip} || {vars.city} || {vars.country} || {vars.vatId}">
+				<div class="t3s-contact__block">
+					<strong class="t3s-contact__label"><f:translate key="{lll}contact.headquarters" /></strong>
+					<f:render partial="T3sVars/Parts" section="Identity" arguments="{_all}" />
+					<f:render partial="T3sVars/Parts" section="Postal" arguments="{_all}" />
+					<f:render partial="T3sVars/Parts" section="Vat" arguments="{_all}" />
+				</div>
+			</f:if>
+			<f:if condition="{vars.phone} || {vars.fax} || {vars.email} || {vars.website}">
+				<div class="t3s-contact__block">
+					<strong class="t3s-contact__label"><f:translate key="{lll}contact.direct" /></strong>
+					<f:render partial="T3sVars/Parts" section="Contact" arguments="{vars: vars, varsLinked: varsLinked, varsIcons: varsIcons, varsConfig: varsConfig, withRoute: 0}" />
+				</div>
+			</f:if>
+		</address>
+
+		<f:if condition="{varsConfig.mapsUrl}">
+			<a href="{varsConfig.mapsUrl}" target="_blank" rel="noopener" class="t3s-contact__maps-btn">
+				<span><f:translate key="{lll}address.route" /></span>
+				<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="18"></line><line x1="15" y1="6" x2="15" y2="21"></line></svg>
+			</a>
+		</f:if>
+	</div>
+
+	<f:if condition="{showMap}">
+		<f:render partial="T3sVars/Map" arguments="{varsConfig: varsConfig}" />
+	</f:if>
+</section>
+</f:section>
+
+</html>

@@ -1,0 +1,50 @@
+{
+    "name": "t3s/vars",
+    "type": "typo3-cms-extension",
+    "description": "Global variables for TYPO3 v14: maintain company, address, phone, email etc. once as site settings and use them as {{placeholders}} in RTE, Fluid and TypoScript. CKEditor 5 dropdown, automatic tel/mailto/URL links and an \"Address\" content element with schema.org markup and optional Google Maps (route button, map with two-click privacy).",
+    "license": "GPL-2.0-or-later",
+    "keywords": [
+        "TYPO3 CMS",
+        "TYPO3 extension",
+        "global variables",
+        "variables",
+        "placeholder",
+        "CKEditor",
+        "RTE",
+        "address",
+        "Google Maps",
+        "Google Business Profile"
+    ],
+    "homepage": "https://www.t3solution.de",
+    "authors": [
+        {
+            "name": "Helmut Hackbarth",
+            "homepage": "https://www.t3solution.de",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "typo3/cms-core": "^14.3",
+        "typo3/cms-frontend": "^14.3",
+        "typo3/cms-rte-ckeditor": "^14.3"
+    },
+    "suggest": {
+        "quellenform/t3x-iconpack-fontawesome": "Icons for phone, email, website etc. in the content element \"Address\""
+    },
+    "autoload": {
+        "psr-4": {
+            "T3S\\T3sVars\\": "Classes/"
+        }
+    },
+    "extra": {
+        "typo3/cms": {
+            "extension-key": "t3s_vars"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/t3solution/t3s_vars/issues",
+        "source": "https://github.com/t3solution/t3s_vars",
+        "docs": "https://docs.typo3.org/p/t3s/vars/main/en-us/"
+    }
+}

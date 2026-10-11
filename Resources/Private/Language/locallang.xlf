@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+	<file source-language="en" datatype="plaintext" original="EXT:t3s_vars/Resources/Private/Language/locallang.xlf" product-name="t3s_vars">
+		<header/>
+		<body>
+			<trans-unit id="category.vars">
+				<source>Global variables</source>
+			</trans-unit>
+			<trans-unit id="category.t3sVars">
+				<source>Variables: links</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.company">
+				<source>Company</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.street">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.zip">
+				<source>ZIP code</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.city">
+				<source>City</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.fax">
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.website">
+				<source>Website</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.telKeys">
+				<source>Keys rendered as phone link (tel:)</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.telKeys.description">
+				<source>Comma-separated, e.g. phone,fax</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.mailKeys">
+				<source>Keys rendered as email link (mailto:)</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.mailKeys.description">
+				<source>Comma-separated, e.g. email</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.urlKeys">
+				<source>Keys rendered as URL link</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.urlKeys.description">
+				<source>Comma-separated keys rendered as URL link, e.g. website. Values without https:// get it added automatically.</source>
+			</trans-unit>
+			<trans-unit id="rte.label">
+				<source>Variables</source>
+			</trans-unit>
+			<trans-unit id="rte.tooltip">
+				<source>Insert global variable</source>
+			</trans-unit>
+			<trans-unit id="ce.address.title">
+				<source>Address (global variables)</source>
+			</trans-unit>
+			<trans-unit id="ce.address.description">
+				<source>Outputs company, address, phone, fax, email and website from the site settings as &lt;address&gt;.</source>
+			</trans-unit>
+			<trans-unit id="address.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="address.fax">
+				<source>Fax</source>
+			</trans-unit>
+			<trans-unit id="address.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="address.website">
+				<source>Web</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.maps">
+				<source>Google Maps / Business profile link</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.maps.description">
+				<source>Share link of your Google Business profile: Google Maps → your business → Share → Copy link, e.g. https://maps.app.goo.gl/…. Used for the button "Plan route on Google Maps".</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.mapsEmbed">
+				<source>Google Maps embed URL (iframe src)</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.mapsEmbed.description">
+				<source>Google Maps → Share → Embed a map → Copy HTML. Paste the src URL (https://www.google.com/maps/embed?pb=…) or the whole &lt;iframe&gt; code. Only Google Maps embed URLs are accepted – share links (maps.app.goo.gl, share.google) do not work here. Required for the layouts "Compact (address &amp; map)" and "Split (contact + map)". Empty = no map.</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.mapsConsent">
+				<source>Load map only after click (privacy)</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.mapsConsent.description">
+				<source>No data is sent to Google before the visitor clicks "Load map"</source>
+			</trans-unit>
+			<trans-unit id="field.layout">
+				<source>Layout</source>
+			</trans-unit>
+			<trans-unit id="field.layout.compact">
+				<source>Compact (address only)</source>
+			</trans-unit>
+			<trans-unit id="field.layout.split">
+				<source>Split (contact + map)</source>
+			</trans-unit>
+			<trans-unit id="address.country">
+				<source>Country</source>
+			</trans-unit>
+			<trans-unit id="address.route">
+				<source>Plan route on Google Maps</source>
+			</trans-unit>
+			<trans-unit id="contact.headquarters">
+				<source>Headquarters</source>
+			</trans-unit>
+			<trans-unit id="contact.direct">
+				<source>Direct contact</source>
+			</trans-unit>
+			<trans-unit id="map.notice">
+				<source>Loading the map transfers data to Google.</source>
+			</trans-unit>
+			<trans-unit id="map.load">
+				<source>Load map</source>
+			</trans-unit>
+			<trans-unit id="map.title">
+				<source>Map</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.company.description">
+				<source>Official name exactly as in your Google Business profile (consistent NAP data). Placeholder: {{company}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.street.description">
+				<source>Street and house number, e.g. Bahnhofstrasse 4. Placeholder: {{street}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.zip.description">
+				<source>Postal code, e.g. 6340. Placeholder: {{zip}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.city.description">
+				<source>City, e.g. Baar. Placeholder: {{city}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.country.description">
+				<source>Country name or ISO code, e.g. Switzerland or CH. Placeholder: {{country}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.phone.description">
+				<source>International format recommended, e.g. +41 41 000 00 00. Spaces, hyphens and brackets are allowed – the tel: link uses digits and + only. Placeholder: {{phone}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.fax.description">
+				<source>Same format as phone, e.g. +41 41 000 00 01. Placeholder: {{fax}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.email.description">
+				<source>Plain address without "mailto:", e.g. info@typo3.org. Spam protection (config.spamProtectEmailAddresses) applies. Placeholder: {{email}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.website.description">
+				<source>Full URL including https://, e.g. https://typo3.org. If https:// is missing it is added automatically. The text is shown exactly as entered. Placeholder: {{website}}</source>
+			</trans-unit>
+			<trans-unit id="field.layout.compactmap">
+				<source>Compact (address &amp; map)</source>
+			</trans-unit>
+			<trans-unit id="field.layout.splitnomap">
+				<source>Split (contact only, no map)</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.profession">
+				<source>Profession / activity</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.profession.description">
+				<source>Shown above the owner / company name, e.g. President. Placeholder: {{profession}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.vatId">
+				<source>VAT ID</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.vatId.description">
+				<source>VAT identification number incl. country code, e.g. CHE-112.256.297 MWST. Placeholder: {{vatId}}</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.icons">
+				<source>Show icons (EXT:iconpack + Font Awesome)</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.icons.description">
+				<source>Content element "Address": icons instead of labels for phone, fax, email, website and route link – only if EXT:iconpack with Font Awesome (fa5, fa6 or fa7) is installed.</source>
+			</trans-unit>
+			<trans-unit id="address.vatId">
+				<source>VAT ID</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.person">
+				<source>Owner / contact person</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.person.description">
+				<source>Name of the owner or contact person, shown in bold above the company, e.g. Olivier Dobberkau. Placeholder: {{person}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.addressAddition">
+				<source>Address addition</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.addressAddition.description">
+				<source>Optional line below the street, e.g. 2nd floor. Placeholder: {{addressAddition}}</source>
+			</trans-unit>
+			<trans-unit id="field.layout.description">
+				<source>Layouts with map need the Google Maps embed URL in the site settings (Sites &gt; Setup &gt; Edit settings &gt; Variables: links &gt; "Google Maps embed URL (iframe src)", t3sVars.mapsEmbed). Without it no map is shown. The route button uses "Google Maps / Business profile link" (vars.maps).</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

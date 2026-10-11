@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<guides xmlns="https://www.phpdoc.org/guides"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://www.phpdoc.org/guides ../vendor/phpdocumentor/guides-cli/resources/schema/guides.xsd"
+        links-are-relative="true">
+    <extension class="\T3Docs\Typo3DocsTheme\DependencyInjection\Typo3DocsThemeExtension"
+               project-home="https://www.t3solution.de"
+               project-repository="https://github.com/t3solution/t3s_vars"
+               project-issues="https://github.com/t3solution/t3s_vars/issues"
+               edit-on-github="t3solution/t3s_vars"
+               edit-on-github-branch="main"
+               typo3-core-preferred="main"
+               interlink-shortcode="t3s/vars"
+    />
+    <project title="T3S Vars"
+             release="1.0.0"
+             version="1.0"
+             copyright="since 2026 by Helmut Hackbarth"
+    />
+</guides>

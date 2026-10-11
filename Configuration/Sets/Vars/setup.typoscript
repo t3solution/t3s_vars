@@ -1,0 +1,29 @@
+# Replace {{key}} placeholders in RTE and parseFunc output
+lib.parseFunc_RTE.nonTypoTagStdWrap.postUserFunc = T3S\T3sVars\UserFunc\ParseFuncReplacer->replace
+lib.parseFunc.nonTypoTagStdWrap.postUserFunc = T3S\T3sVars\UserFunc\ParseFuncReplacer->replace
+
+# Content element "Address" (t3s_address)
+tt_content.t3s_address =< lib.contentElement
+tt_content.t3s_address {
+  # layout from pi_flexform: compact = Address, compactmap = AddressMap, split/splitnomap = AddressSplit
+  templateName >
+  templateName.cObject = CASE
+  templateName.cObject {
+    key.data = flexform:pi_flexform:layout
+    default = TEXT
+    default.value = Address
+    compactmap = TEXT
+    compactmap.value = AddressMap
+    split = TEXT
+    split.value = AddressSplit
+    splitnomap = TEXT
+    splitnomap.value = AddressSplit
+  }
+  variables.t3sVarsLayout = TEXT
+  variables.t3sVarsLayout.data = flexform:pi_flexform:layout
+  partialRootPaths.1760 = EXT:t3s_vars/Resources/Private/Partials/
+  # index 1: own template; override from your own extension with a higher index
+  templateRootPaths.1 = EXT:t3s_vars/Resources/Private/Templates/
+  # high index: avoids collisions with other processors
+  dataProcessing.1760 = T3S\T3sVars\DataProcessing\VariablesProcessor
+}
