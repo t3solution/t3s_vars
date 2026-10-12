@@ -6,7 +6,7 @@
 [![License](https://poser.pugx.org/t3s/vars/license)](https://packagist.org/packages/t3s/vars)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://www.paypal.me/t3sbootstrap)
 
-**Version:** 1.0.0 · **Package:** `t3s/vars` · **Extension key:** `t3s_vars` · **Documentation:** [docs.typo3.org](https://docs.typo3.org/p/t3s/vars/main/en-us/) · **Live demo:** [www.t3sbootstrap.de/extensions/globale-variablen](https://www.t3sbootstrap.de/extensions/globale-variablen)
+**Version:** 1.1.0 · **Package:** `t3s/vars` · **Extension key:** `t3s_vars` · **Documentation:** [docs.typo3.org](https://docs.typo3.org/p/t3s/vars/main/en-us/) · **Live demo:** [www.t3sbootstrap.de/extensions/globale-variablen](https://www.t3sbootstrap.de/extensions/globale-variablen)
 
 `t3s_vars` provides centrally maintained values such as company, address, phone or email as **placeholders**:
 

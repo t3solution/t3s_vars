@@ -1,6 +1,6 @@
-# Release Notes – EXT:t3s_vars 1.0.0
+# Release Notes – EXT:t3s_vars 1.1.0
 
-**Version:** 1.0.0 · **Datum:** 11.10.2026 · **Paket:** `t3s/vars` · **TYPO3:** 14.3+ · **PHP:** 8.2+ · **Autor:** Helmut Hackbarth · T3Solution
+**Version:** 1.1.0 · **Datum:** 12.10.2026 · **Paket:** `t3s/vars` · **TYPO3:** 14.3+ · **PHP:** 8.2+ · **Autor:** Helmut Hackbarth · T3Solution
 
 **Live-Demo:** https://www.t3sbootstrap.de/extensions/globale-variablen · **Quellcode:** https://github.com/t3solution/t3s_vars
 
@@ -176,4 +176,5 @@ Kein Datenbank-Update nötig: Die Extension benötigt weder eigene Tabellen noch
 
 | Version | Änderung |
 |---|---|
-| 1.0.0 | Erste Veröffentlichung: Site Set, Platzhalter, CKEditor-Dropdown, Verlinkung, ViewHelper, Content Element „Adresse“ (Kompakt / Kompakt mit Karte / Split / Split ohne Karte), Google Maps mit 2-Klick-Lösung, Öffnungszeiten, Social Media, vCard, JSON-LD, Übersetzungen, `VariablesProcessor` |
+| 1.1.0 | Öffnungszeiten, Social Media, vCard „Kontakt speichern“, JSON-LD, Übersetzungen pro Sprache |
+| 1.0.0 | Erste Veröffentlichung: Site Set, Platzhalter, CKEditor-Dropdown, Verlinkung, ViewHelper, Content Element „Adresse“ (Kompakt / Kompakt mit Karte / Split / Split ohne Karte), Google Maps mit 2-Klick-Lösung, `VariablesProcessor` |
