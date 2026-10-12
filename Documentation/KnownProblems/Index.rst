@@ -36,3 +36,14 @@ postUserFunc
 Content Security Policy
     If CSP is active in the frontend, allow
     ``frame-src https://www.google.com`` for the map.
+
+Translations and TypoScript constants
+    :confval:`t3svars-translations` applies to placeholders, ViewHelpers,
+    the content element and JSON-LD, but not to TypoScript constants
+    ``{$vars.*}`` and ``{site.settings.vars.*}`` – these always show the
+    value of the site settings.
+
+Single-line fields
+    The settings editor shows opening hours and translations as single-line
+    fields. Separate entries with ``;`` (opening hours inside a translation
+    with ``|``).

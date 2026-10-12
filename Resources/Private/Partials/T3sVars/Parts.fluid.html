@@ -25,13 +25,35 @@
 </f:section>
 
 <f:section name="Contact">
-<f:if condition="{vars.phone} || {vars.fax} || {vars.email} || {vars.website} || ({withRoute} && {varsConfig.mapsUrl})">
+<f:if condition="{vars.phone} || {vars.fax} || {vars.email} || {vars.website} || ({withRoute} && {varsConfig.mapsUrl}) || {varsConfig.vcard}">
 	<div class="t3s-address__group t3s-address__contact">
 		<f:if condition="{vars.phone}"><div class="t3s-address__item"><f:render section="Label" arguments="{icon: varsIcons.phone, key: 'phone'}" /><span itemprop="telephone">{varsLinked.phone -> f:format.raw()}</span></div></f:if>
 		<f:if condition="{vars.fax}"><div class="t3s-address__item"><f:render section="Label" arguments="{icon: varsIcons.fax, key: 'fax'}" /><span itemprop="faxNumber">{varsLinked.fax -> f:format.raw()}</span></div></f:if>
 		<f:if condition="{vars.email}"><div class="t3s-address__item"><f:render section="Label" arguments="{icon: varsIcons.email, key: 'email'}" /><span itemprop="email">{varsLinked.email -> f:format.raw()}</span></div></f:if>
 		<f:if condition="{vars.website}"><div class="t3s-address__item"><f:render section="Label" arguments="{icon: varsIcons.website, key: 'website'}" /><span itemprop="url">{varsLinked.website -> f:format.raw()}</span></div></f:if>
 		<f:if condition="{withRoute} && {varsConfig.mapsUrl}"><div class="t3s-address__item"><f:if condition="{varsIcons.maps}">{varsIcons.maps -> f:format.raw()} </f:if><a href="{varsConfig.mapsUrl}" class="t3s-address__maps" target="_blank" rel="noopener"><f:translate key="LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:address.route" /></a></div></f:if>
+		<f:if condition="{varsConfig.vcard}"><div class="t3s-address__item"><f:if condition="{varsIcons.vcard}">{varsIcons.vcard -> f:format.raw()} </f:if><a href="{varsConfig.vcard.href}" download="{varsConfig.vcard.filename}" class="t3s-address__vcard"><f:translate key="LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:address.vcard" /></a></div></f:if>
+	</div>
+</f:if>
+</f:section>
+
+<f:section name="Hours">
+<f:if condition="{varsHours}">
+	<div class="t3s-address__group t3s-address__hours">
+		<div class="t3s-address__item">
+			<f:if condition="{varsIcons.openingHours}"><f:then>{varsIcons.openingHours -> f:format.raw()} </f:then><f:else><span class="t3s-address__hours-label"><f:translate key="LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:address.openingHours" />:</span></f:else></f:if>
+			<span class="t3s-address__hours-lines"><f:for each="{varsHours}" as="line"><span class="t3s-address__hours-line"><f:if condition="{line.spec}"><meta itemprop="openingHours" content="{line.spec}"></f:if>{line.text}</span></f:for></span>
+		</div>
+	</div>
+</f:if>
+</f:section>
+
+<f:section name="Social">
+<f:if condition="{varsSocial}">
+	<div class="t3s-address__group t3s-address__social" aria-label="{f:translate(key: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:address.social')}">
+		<f:for each="{varsSocial}" as="profile">
+			<a href="{profile.url}" class="t3s-address__social-link{f:if(condition: profile.icon, then: ' t3s-address__social-link--icon')}" itemprop="sameAs" target="_blank" rel="noopener" title="{profile.name}"><f:if condition="{profile.icon}"><f:then>{profile.icon -> f:format.raw()}<span class="t3s-visually-hidden">{profile.name}</span></f:then><f:else>{profile.name}</f:else></f:if></a>
+		</f:for>
 	</div>
 </f:if>
 </f:section>

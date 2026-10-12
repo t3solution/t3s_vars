@@ -40,7 +40,7 @@ final class ReplaceViewHelper extends AbstractViewHelper
         }
 
         return GeneralUtility::makeInstance(VariableService::class)
-            ->replace($content, $request?->getAttribute('site'), $cObj);
+            ->replace($content, $request?->getAttribute('site'), $cObj, $request?->getAttribute('language'));
     }
 
     private function getRequest(): ?ServerRequestInterface

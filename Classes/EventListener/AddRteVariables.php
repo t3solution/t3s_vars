@@ -40,7 +40,7 @@ final readonly class AddRteVariables
         uksort($values, static fn(string $a, string $b): int => ($order[$a] ?? PHP_INT_MAX) <=> ($order[$b] ?? PHP_INT_MAX));
         foreach ($values as $key => $value) {
             if ($value !== '') {
-                $items[] = ['key' => $key, 'label' => ($labels[$key] ?? $key) . ': ' . $value];
+                $items[] = ['key' => $key, 'label' => ($labels[$key] ?? $key) . ': ' . preg_replace('/\s*\R\s*/', ' · ', $value)];
             }
         }
         if ($items === []) {

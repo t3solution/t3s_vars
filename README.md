@@ -22,6 +22,11 @@ Call {{company}}: {{phone}}
 - **Content element "Address"** (`t3s_address`) – layouts *Compact*, *Compact (address & map)*, *Split* (contact + Google Maps) and *Split (contact only)*, `<address>` with schema.org markup
 - **Icons** for phone, email, website etc. if EXT:iconpack with Font Awesome is installed
 - **Google Maps**: route button to your Google Business profile, optional map with two-click privacy
+- **Opening hours** in schema.org format – shown localized ("Mon–Fri 08:00–17:00" / "Mo–Fr 08:00–17:00 Uhr")
+- **Social media profiles** (Facebook, Instagram, LinkedIn, XING, YouTube, X, TikTok, Mastodon) as icon links
+- **vCard download** – "Save contact" link in the content element (`.vcf` for the address book)
+- **JSON-LD** (`LocalBusiness` or any schema.org type) in the `<head>` of every page – optional
+- **Multilingual sites**: translations of single values per language
 - Values also available as **TypoScript constants** and in **PAGEVIEW**
 - No database tables or fields required (the layout of the content element is stored in `pi_flexform`), no custom RTE preset required
 
@@ -68,6 +73,8 @@ vars:
   country: 'Switzerland'
   email: 'info@typo3.org'
   website: 'https://typo3.org'
+  openingHours: 'Mo-Fr 08:00-17:00; Sa 09:00-12:00'
+  linkedin: 'https://www.linkedin.com/company/typo3'
 ```
 
 ### Included variables
@@ -88,6 +95,8 @@ vars:
 | `{{website}}` | `vars.website` | URL |
 | `{{vatId}}` | `vars.vatId` | – |
 | `{{maps}}` | `vars.maps` | – (used by the content element) |
+| `{{openingHours}}` | `vars.openingHours` | – (localized, one period per line) |
+| `{{facebook}}`, `{{instagram}}`, `{{linkedin}}`, `{{xing}}`, `{{youtube}}`, `{{x}}`, `{{tiktok}}`, `{{mastodon}}` | `vars.facebook` … | URL |
 
 ### Adding custom variables
 
@@ -95,11 +104,11 @@ In your own site set in `settings.definitions.yaml` – every key with the prefi
 
 ```yaml
 settings:
-  vars.opening:
-    label: 'Opening hours'
+  vars.register:
+    label: 'Commercial register'
     category: vars
     type: string
-    default: 'Mon–Fri 8am–4pm'
+    default: ''
   vars.mobile:
     label: 'Mobile'
     category: vars
@@ -125,13 +134,13 @@ Empty values are replaced by an empty string.
 
 ### Controlling links
 
-Category **Variables: links** in the site settings:
+Category **Variables: options** in the site settings:
 
 | Setting | Default | Link |
 |---|---|---|
 | `t3sVars.telKeys` | `phone,fax` | `tel:` – spaces, hyphens etc. are removed from the `href` |
 | `t3sVars.mailKeys` | `email` | `mailto:` – `config.spamProtectEmailAddresses` applies |
-| `t3sVars.urlKeys` | `website` | URL – opens in a new tab (`target="_blank" rel="noopener"`) |
+| `t3sVars.urlKeys` | `website` and the social media keys | URL – opens in a new tab (`target="_blank" rel="noopener"`) |
 
 Simply add your own keys, e.g. `phone,fax,mobile`.
 
@@ -144,12 +153,60 @@ Every setting has a short help text with format and example in the backend (Engl
 | Setting | Category | Content |
 |---|---|---|
 | `vars.maps` | Global variables | Share link of your **Google Business profile** (Google Maps → your business → *Share* → `https://maps.app.goo.gl/…`) |
-| `t3sVars.mapsEmbed` | Variables: links | Embed URL for the map: Google Maps → *Share* → *Embed a map* → paste the `src` URL (`https://www.google.com/maps/embed?pb=…`) or the whole `<iframe>` code – share links do not work here |
-| `t3sVars.mapsConsent` | Variables: links | Load the map only after a click (default: on) |
+| `t3sVars.mapsEmbed` | Variables: options | Embed URL for the map: Google Maps → *Share* → *Embed a map* → paste the `src` URL (`https://www.google.com/maps/embed?pb=…`) or the whole `<iframe>` code – share links do not work here |
+| `t3sVars.mapsConsent` | Variables: options | Load the map only after a click (default: on) |
 
 Use the share link of your Business profile – not a plain address search – so the route button points to your verified listing. This links website and profile consistently (local SEO); together with identical NAP data (name, address, phone) on the website and in the profile it is a supporting signal, not a ranking guarantee.
 
 Only `http(s)` URLs are accepted for both values.
+
+### Opening hours
+
+`vars.openingHours` takes the periods in schema.org format, separated by `;` (the settings editor shows a single-line field; line breaks in `settings.yaml` work as well):
+
+```yaml
+vars:
+  openingHours: 'Mo-Fr 08:00-17:00; Sa 09:00-12:00; By appointment'
+```
+
+Days: `Mo Tu We Th Fr Sa Su`, ranges with `-`, lists with `,` (`Mo,We,Fr 09:00-12:00`). In the frontend the periods are shown in the page language – "Mon–Fri 08:00–17:00" in English, "Mo–Fr 08:00–17:00 Uhr" in German. Entries in another format (e.g. "By appointment") are shown as text and left out of the structured data.
+
+### Social media
+
+`vars.facebook`, `vars.instagram`, `vars.linkedin`, `vars.xing`, `vars.youtube`, `vars.x`, `vars.tiktok`, `vars.mastodon` (category **Global variables: social media**) take the full profile URL. The content element shows them as icon links (brand icons via EXT:iconpack, otherwise the name as text); JSON-LD lists them as `sameAs`. Only `http(s)` URLs are used.
+
+### Multilingual sites
+
+Site settings apply to all languages of a site. Values that differ per language go into **`t3sVars.translations`** (category *Variables: options*), separated by `;`:
+
+```text
+en.country = Germany; en.profession = Web developer; fr.country = Allemagne
+```
+
+The language code is the one of the site language (`en` for `en_US.UTF-8`). Translations apply to placeholders, ViewHelpers, the content element and JSON-LD – not to TypoScript constants and `{site.settings.vars.*}`. For opening hours separate the periods with `|`: `en.openingHours = Mo-Fr 08:00-17:00 | By appointment`. Day names are translated automatically, so opening hours usually need no translation.
+
+### JSON-LD (schema.org)
+
+With **`t3sVars.jsonLd`** enabled, every page gets structured data in the `<head>` – name, URL, phone, fax, email, VAT ID, address, opening hours, map link and social profiles:
+
+```html
+<script type="application/ld+json">{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "TYPO3 Association",
+    "url": "https://typo3.org",
+    "address": { "@type": "PostalAddress", "streetAddress": "Bahnhofstrasse 4", "postalCode": "6340", "addressLocality": "Baar", "addressCountry": "Switzerland" },
+    "openingHours": ["Mo-Fr 08:00-17:00"],
+    "sameAs": ["https://www.linkedin.com/company/typo3"]
+}</script>
+```
+
+| Setting | Default | |
+|---|---|---|
+| `t3sVars.jsonLd` | off | output JSON-LD (requires `vars.company`) |
+| `t3sVars.jsonLdType` | `LocalBusiness` | schema.org type, e.g. `Organization`, `ProfessionalService`, `Store`, `Restaurant`, `Dentist` – also used for the microdata of the content element |
+
+The script is added before `</head>` via a PSR-14 event, so it works with `PAGE` and `PAGEVIEW` alike. Disable it if another extension already outputs `LocalBusiness`/`Organization` data. Check the result with Google's [Rich Results Test](https://search.google.com/test/rich-results).
 
 ### In Fluid
 
@@ -159,7 +216,7 @@ The namespace `vars` is registered globally – no `{namespace}` declaration nee
 <!-- single value (linked if configured) -->
 <vars:get key="phone" />
 <vars:get key="phone" link="0" />
-<vars:get key="opening" default="by appointment" />
+<vars:get key="register" default="–" />
 {vars:get(key: 'company')}
 
 <!-- replace placeholders in any text -->
@@ -246,12 +303,16 @@ In the new content element wizard under *Default* → **Address (global variable
 | Layout | *Compact (address only)*, *Compact (address & map)*, *Split (contact + map)* or *Split (contact only, no map)* – layouts with map need `t3sVars.mapsEmbed` (hint shown at the field) |
 | Header / Subheader | Split: heading and small label above it (e.g. "Contact") |
 
+Opening hours and social media links appear automatically below the contact details as soon as they are maintained.
+
+**Save contact (vCard):** the contact details end with a link *Save contact* that downloads a `.vcf` file (name, company, profession, address, phone, fax, email, website, social profiles) for the address book on phone and computer. The file is embedded in the link as data URL – no extra request, no server route, cached with the page. Disable it with `t3sVars.vcard: false`.
+
 ### Layout "Compact"
 
 Output (empty values are omitted):
 
 - Header, frame, spacing etc. come from the `Default` layout of the content elements (e.g. fluid_styled_content).
-- Links follow the settings under *Variables: links*.
+- Links follow the settings under *Variables: options*.
 - Labels (Phone, Fax, Email, Web) are translated (en, de).
 
 ### Layout "Compact (address & map)"
@@ -332,9 +393,13 @@ Available in the template:
 | `{varsConfig.mapsUrl}` | validated Business profile link |
 | `{varsConfig.mapsEmbed}` | validated embed URL |
 | `{varsConfig.mapsConsent}` | two-click privacy on/off |
-| `{varsIcons.<key>}` | icon markup (phone, fax, email, website, maps) if EXT:iconpack + Font Awesome is available – output with `-> f:format.raw()` |
+| `{varsConfig.vcard}` | `{href, filename}` of the vCard download or `null` |
+| `{varsConfig.schemaType}` | schema.org type for the microdata (`t3sVars.jsonLdType`) |
+| `{varsHours}` | opening hours: list of `{spec, text}` – `spec` is the schema.org value (empty for free text), `text` the localized display |
+| `{varsSocial}` | social profiles: `{name, url, icon}` per key |
+| `{varsIcons.<key>}` | icon markup (phone, fax, email, website, maps, openingHours) if EXT:iconpack + Font Awesome is available – output with `-> f:format.raw()` |
 
-This also lets you add custom variables, e.g. `{vars.opening}`.
+This also lets you add custom variables, e.g. `{vars.register}`.
 
 The DataProcessor `T3S\T3sVars\DataProcessing\VariablesProcessor` can also be used in other content elements or in PAGEVIEW:
 
@@ -357,6 +422,11 @@ An event listener (`AfterPrepareConfigurationForEditorEvent`) adds the plugin an
   ```
 - **Disable:** *Admin Tools → Settings → Extension Configuration → t3s_vars → rteButton*
 - No button if the site has no variables with a value.
+
+## Planned
+
+- **Placeholders in headers without overriding the partial** – a site setting that enables `<vars:replace>` for headers
+- **Backend preview** – the page module shows the real address and the chosen layout instead of the header only
 
 ## Source and issues
 

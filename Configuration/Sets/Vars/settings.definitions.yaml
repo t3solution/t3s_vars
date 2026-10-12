@@ -1,6 +1,8 @@
 categories:
   vars:
     label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:category.vars'
+  varsSocial:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:category.varsSocial'
   t3sVars:
     label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:category.t3sVars'
 
@@ -89,6 +91,60 @@ settings:
     category: vars
     type: string
     default: ''
+  vars.openingHours:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.openingHours'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.openingHours.description'
+    category: vars
+    type: text
+    default: ''
+  vars.facebook:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.facebook'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.facebook.description'
+    category: varsSocial
+    type: string
+    default: ''
+  vars.instagram:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.instagram'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.instagram.description'
+    category: varsSocial
+    type: string
+    default: ''
+  vars.linkedin:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.linkedin'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.linkedin.description'
+    category: varsSocial
+    type: string
+    default: ''
+  vars.xing:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.xing'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.xing.description'
+    category: varsSocial
+    type: string
+    default: ''
+  vars.youtube:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.youtube'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.youtube.description'
+    category: varsSocial
+    type: string
+    default: ''
+  vars.x:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.x'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.x.description'
+    category: varsSocial
+    type: string
+    default: ''
+  vars.tiktok:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.tiktok'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.tiktok.description'
+    category: varsSocial
+    type: string
+    default: ''
+  vars.mastodon:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.mastodon'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.vars.mastodon.description'
+    category: varsSocial
+    type: string
+    default: ''
   t3sVars.telKeys:
     label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.telKeys'
     description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.telKeys.description'
@@ -106,7 +162,7 @@ settings:
     description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.urlKeys.description'
     category: t3sVars
     type: string
-    default: 'website'
+    default: 'website,facebook,instagram,linkedin,xing,youtube,x,tiktok,mastodon'
   t3sVars.mapsEmbed:
     label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.mapsEmbed'
     description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.mapsEmbed.description'
@@ -122,6 +178,30 @@ settings:
   t3sVars.icons:
     label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.icons'
     description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.icons.description'
+    category: t3sVars
+    type: bool
+    default: true
+  t3sVars.jsonLd:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.jsonLd'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.jsonLd.description'
+    category: t3sVars
+    type: bool
+    default: false
+  t3sVars.jsonLdType:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.jsonLdType'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.jsonLdType.description'
+    category: t3sVars
+    type: string
+    default: 'LocalBusiness'
+  t3sVars.translations:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.translations'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.translations.description'
+    category: t3sVars
+    type: text
+    default: ''
+  t3sVars.vcard:
+    label: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.vcard'
+    description: 'LLL:EXT:t3s_vars/Resources/Private/Language/locallang.xlf:settings.t3sVars.vcard.description'
     category: t3sVars
     type: bool
     default: true

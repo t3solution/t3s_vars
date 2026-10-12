@@ -200,10 +200,20 @@ Choose an index that is not used by other processors of the content element.
         -   Validated map embed URL
     *   -   ``{varsConfig.mapsConsent}``
         -   Two-click privacy on/off
+    *   -   ``{varsConfig.vcard}``
+        -   ``{href, filename}`` of the vCard download, ``null`` if disabled
+    *   -   ``{varsConfig.schemaType}``
+        -   schema.org type for the microdata (:confval:`t3svars-jsonldtype`)
+    *   -   ``{varsHours}``
+        -   Opening hours: list of ``{spec, text}`` – ``spec`` is the
+            schema.org value (empty for free text), ``text`` the localized
+            display
+    *   -   ``{varsSocial}``
+        -   Social profiles: ``{name, url, icon}`` per key
     *   -   ``{varsIcons.<key>}``
         -   Icon markup for ``phone``, ``fax``, ``email``, ``website``,
-            ``maps`` – only with EXT:iconpack + Font Awesome. Output with
-            ``-> f:format.raw()``
+            ``maps``, ``openingHours`` – only with EXT:iconpack + Font
+            Awesome. Output with ``-> f:format.raw()``
 
 ..  _developer-icons:
 
@@ -231,6 +241,15 @@ processor renders icons via the iconpack API (style ``solid``, classes
         -   ``globe``
     *   -   ``maps``
         -   ``map-marker-alt``
+    *   -   ``openingHours``
+        -   ``clock``
+    *   -   ``vcard``
+        -   ``address-card``
+
+Social profiles use the ``brands`` style: ``facebook-f``, ``instagram``,
+``linkedin-in``, ``xing``, ``youtube``, ``x-twitter``, ``tiktok``,
+``mastodon``. If an icon is not available in the installed iconpack (e.g.
+``x-twitter`` in fa5), the profile name is shown instead.
 
 Override an icon via TypoScript:
 

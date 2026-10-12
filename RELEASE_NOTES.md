@@ -16,6 +16,11 @@
 - **Content Element „Adresse“** (`t3s_address`) – Layouts *Kompakt*, *Kompakt (Adresse & Karte)*, *Split* (Kontakt + Karte) und *Split (nur Kontakt)*, `<address>` mit schema.org-Auszeichnung
 - **Google Maps** – Routen-Button zum Google-Business-Profil, Karte optional mit 2-Klick-Lösung (Datenschutz)
 - **Icons** für Telefon, Fax, E-Mail, Website und Routen-Link, wenn EXT:iconpack mit Font Awesome installiert ist
+- **Öffnungszeiten** im schema.org-Format – in der Seitensprache angezeigt („Mo–Fr 08:00–17:00 Uhr“)
+- **Social-Media-Profile** (Facebook, Instagram, LinkedIn, XING, YouTube, X, TikTok, Mastodon) als Icon-Links
+- **vCard-Download** – Link „Kontakt speichern“ im Adress-Element (`.vcf` fürs Adressbuch)
+- **JSON-LD** (`LocalBusiness` oder ein anderer schema.org-Typ) im `<head>` jeder Seite – optional
+- **Mehrsprachige Sites**: einzelne Werte pro Sprache übersetzen
 - **Fluid-ViewHelper** `<vars:get>` und `<vars:replace>`, global registriert
 - **Eigene Variablen** per `settings.definitions.yaml` – ohne Code-Änderung
 
@@ -23,7 +28,12 @@
 
 | Bereich | Umsetzung |
 |---|---|
-| Werte | Site Set `t3s/vars`, Settings `vars.*` (company, person, profession, street, addressAddition, zip, city, country, phone, fax, email, website, vatId, maps) |
+| Werte | Site Set `t3s/vars`, Settings `vars.*` (company, person, profession, street, addressAddition, zip, city, country, phone, fax, email, website, vatId, maps, openingHours, facebook, instagram, linkedin, xing, youtube, x, tiktok, mastodon) |
+| Öffnungszeiten | `vars.openingHours` im schema.org-Format, übersetzte Anzeige, Microdata und JSON-LD |
+| Social Media | `vars.facebook` … `vars.mastodon` – Icon-Links im Adress-Element, `sameAs` im JSON-LD |
+| vCard | Link „Kontakt speichern“ – `.vcf` als Data-URL, abschaltbar über `t3sVars.vcard` |
+| JSON-LD | `t3sVars.jsonLd` (an/aus), `t3sVars.jsonLdType` (Standard `LocalBusiness`), per PSR-14-Event vor `</head>` |
+| Übersetzungen | `t3sVars.translations`: `en.country = Germany; en.profession = Web developer` |
 | RTE / parseFunc | `postUserFunc` auf `lib.parseFunc_RTE` und `lib.parseFunc` |
 | CKEditor 5 | PSR-14 `AfterPrepareConfigurationForEditorEvent` – Plugin, Button, Werte |
 | Verlinkung | Site Settings `t3sVars.telKeys`, `t3sVars.mailKeys`, `t3sVars.urlKeys` |
@@ -54,6 +64,37 @@ CType `t3s_address` im Wizard unter *Standard*. Die Daten kommen direkt aus den 
 - Karte mit **2-Klick-Lösung**: Vor dem Klick auf „Karte laden“ werden keine Daten an Google übertragen (abschaltbar)
 - Nutzt das Layout `Default` der Content Elemente (z. B. fluid_styled_content)
 - Template über `templateRootPaths` überschreibbar
+
+### Öffnungszeiten
+
+```yaml
+vars:
+  openingHours: 'Mo-Fr 08:00-17:00; Sa 09:00-12:00; Termine nach Vereinbarung'
+```
+
+Zeiträume im schema.org-Format, getrennt durch `;` (der Settings-Editor zeigt ein einzeiliges Feld). Tage: `Mo Tu We Th Fr Sa Su`. Angezeigt wird in der Seitensprache – „Mo–Fr 08:00–17:00 Uhr“ auf Deutsch, „Mon–Fri 08:00–17:00“ auf Englisch. Freie Einträge wie „Termine nach Vereinbarung“ erscheinen als Text und fließen nicht in die strukturierten Daten ein.
+
+### Social Media
+
+`vars.facebook`, `vars.instagram`, `vars.linkedin`, `vars.xing`, `vars.youtube`, `vars.x`, `vars.tiktok`, `vars.mastodon` – vollständige Profil-URL. Das Adress-Element zeigt sie als Icon-Links (Brand-Icons über EXT:iconpack, sonst der Name als Text), im JSON-LD stehen sie als `sameAs`.
+
+### vCard „Kontakt speichern“
+
+Das Adress-Element endet bei den Kontaktdaten mit dem Link **„Kontakt speichern“**. Er lädt eine `.vcf`-Datei (vCard 3.0) mit Name, Firma, Beruf, Adresse, Telefon, Fax, E-Mail, Website und Social-Media-Profilen – fürs Adressbuch auf Handy und Computer. Die Datei steckt als Data-URL im Link: kein zusätzlicher Request, keine Server-Route, mit der Seite gecacht. Abschaltbar über `t3sVars.vcard`.
+
+### JSON-LD
+
+Mit `t3sVars.jsonLd` bekommt jede Seite strukturierte Daten im `<head>`: Name, URL, Telefon, Fax, E-Mail, USt-IdNr., Adresse, Öffnungszeiten, Karten-Link und Social-Media-Profile. Der Typ ist über `t3sVars.jsonLdType` einstellbar (z. B. `Organization`, `ProfessionalService`, `Store`, `Restaurant`) und gilt auch für die Microdata des Adress-Elements. Das Script wird per Event vor `</head>` eingefügt und funktioniert mit `PAGE` und `PAGEVIEW`. Standard: aus – abschalten, wenn eine andere Extension bereits LocalBusiness-Daten ausgibt.
+
+### Mehrsprachige Sites
+
+Site Settings gelten für alle Sprachen. Abweichende Werte stehen in `t3sVars.translations`, getrennt durch `;`:
+
+```text
+en.country = Germany; en.profession = Web developer
+```
+
+Gilt für Platzhalter, ViewHelper, das Adress-Element und JSON-LD – nicht für TypoScript-Konstanten und `{site.settings.vars.*}`. Wochentage werden automatisch übersetzt.
 
 ### Darstellung
 
@@ -126,8 +167,13 @@ Kein Datenbank-Update nötig: Die Extension benötigt weder eigene Tabellen noch
 - **Content Security Policy:** Bei aktiver CSP im Frontend `frame-src https://www.google.com` erlauben.
 - **RTE-Button** abschaltbar unter *Extension Configuration → t3s_vars → rteButton*; Position steuerbar über den Toolbar-Eintrag `t3sVars` im Preset.
 
+## Geplant
+
+- **Platzhalter in Überschriften ohne Partial-Override** – Site Setting, das `<vars:replace>` für Header aktiviert
+- **Vorschau im Seitenmodul** – echte Adresse und gewähltes Layout statt nur der Überschrift
+
 ## Versionen
 
 | Version | Änderung |
 |---|---|
-| 1.0.0 | Erste Veröffentlichung: Site Set, Platzhalter, CKEditor-Dropdown, Verlinkung, ViewHelper, Content Element „Adresse“ (Kompakt / Kompakt mit Karte / Split / Split ohne Karte), Google Maps mit 2-Klick-Lösung, `VariablesProcessor` |
+| 1.0.0 | Erste Veröffentlichung: Site Set, Platzhalter, CKEditor-Dropdown, Verlinkung, ViewHelper, Content Element „Adresse“ (Kompakt / Kompakt mit Karte / Split / Split ohne Karte), Google Maps mit 2-Klick-Lösung, Öffnungszeiten, Social Media, vCard, JSON-LD, Übersetzungen, `VariablesProcessor` |

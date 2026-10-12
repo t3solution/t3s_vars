@@ -33,7 +33,8 @@ final class GetViewHelper extends AbstractViewHelper
         $request = $this->getRequest();
         $site = $request?->getAttribute('site');
         $service = GeneralUtility::makeInstance(VariableService::class);
-        $values = $service->getValues($site);
+        $language = $request?->getAttribute('language');
+        $values = $service->getValues($site, $language);
         $key = (string)$this->arguments['key'];
 
         if (!array_key_exists($key, $values)) {
@@ -46,7 +47,7 @@ final class GetViewHelper extends AbstractViewHelper
             $cObj->setRequest($request);
             $cObj->start([], '');
         }
-        return $service->render($key, $values[$key], $site, $cObj);
+        return $service->render($key, $values[$key], $site, $cObj, $language);
     }
 
     private function getRequest(): ?ServerRequestInterface

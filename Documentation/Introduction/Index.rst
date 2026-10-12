@@ -48,6 +48,13 @@ Features
     map with two-click privacy
 *   **Fluid ViewHelpers** ``<vars:get>`` and ``<vars:replace>``, registered
     globally
+*   **Opening hours** in schema.org format, shown in the page language
+*   **Social media profiles** (Facebook, Instagram, LinkedIn, XING,
+    YouTube, X, TikTok, Mastodon) as icon links
+*   **vCard download** – "Save contact" link in the content element
+*   **JSON-LD** (``LocalBusiness`` or any schema.org type) in the
+    ``<head>`` of every page – optional
+*   **Multilingual sites**: translations of single values per language
 *   Values available as **TypoScript constants** and in **PAGEVIEW**
 *   **Custom variables** via :file:`settings.definitions.yaml` – no code
     required

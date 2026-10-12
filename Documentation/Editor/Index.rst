@@ -66,6 +66,12 @@ all address elements at once.
     settings (:confval:`t3svars-mapsembed`). The layout field shows this
     hint in the backend as well.
 
+Opening hours (:confval:`vars-openinghours`) and social media links
+(:ref:`configuration-social`) appear automatically below the contact details
+as soon as they are maintained in the site settings. The link
+:guilabel:`Save contact` downloads the contact for the address book
+(:confval:`t3svars-vcard`).
+
 ..  _editor-address-compact:
 
 Layout "Compact"

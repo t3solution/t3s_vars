@@ -7,7 +7,7 @@
 				<source>Global variables</source>
 			</trans-unit>
 			<trans-unit id="category.t3sVars">
-				<source>Variables: links</source>
+				<source>Variables: options</source>
 			</trans-unit>
 			<trans-unit id="settings.vars.company">
 				<source>Company</source>
@@ -49,7 +49,7 @@
 				<source>Keys rendered as URL link</source>
 			</trans-unit>
 			<trans-unit id="settings.t3sVars.urlKeys.description">
-				<source>Comma-separated keys rendered as URL link, e.g. website. Values without https:// get it added automatically.</source>
+				<source>Comma-separated keys rendered as URL link, e.g. website and the social media keys. Values without https:// get it added automatically.</source>
 			</trans-unit>
 			<trans-unit id="rte.label">
 				<source>Variables</source>
@@ -194,6 +194,120 @@
 			</trans-unit>
 			<trans-unit id="field.layout.description">
 				<source>Layouts with map need the Google Maps embed URL in the site settings (Sites &gt; Setup &gt; Edit settings &gt; Variables: links &gt; "Google Maps embed URL (iframe src)", t3sVars.mapsEmbed). Without it no map is shown. The route button uses "Google Maps / Business profile link" (vars.maps).</source>
+			</trans-unit>
+			<trans-unit id="category.varsSocial">
+				<source>Global variables: social media</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.openingHours">
+				<source>Opening hours</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.openingHours.description">
+				<source>Periods in schema.org format, separated by ";" – e.g. "Mo-Fr 08:00-17:00; Sa 09:00-12:00" (days: Mo Tu We Th Fr Sa Su). Shown localized ("Mon–Fri 08:00–17:00") and used for JSON-LD. Other entries (e.g. "by appointment") are shown as text. Placeholder: {{openingHours}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.facebook">
+				<source>Facebook</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.facebook.description">
+				<source>Full profile URL, e.g. https://www.facebook.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{facebook}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.instagram">
+				<source>Instagram</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.instagram.description">
+				<source>Full profile URL, e.g. https://www.instagram.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{instagram}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.linkedin">
+				<source>LinkedIn</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.linkedin.description">
+				<source>Full profile URL, e.g. https://www.linkedin.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{linkedin}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.xing">
+				<source>XING</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.xing.description">
+				<source>Full profile URL, e.g. https://www.xing.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{xing}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.youtube">
+				<source>YouTube</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.youtube.description">
+				<source>Full profile URL, e.g. https://www.youtube.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{youtube}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.x">
+				<source>X (Twitter)</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.x.description">
+				<source>Full profile URL, e.g. https://www.x.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{x}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.tiktok">
+				<source>TikTok</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.tiktok.description">
+				<source>Full profile URL, e.g. https://www.tiktok.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{tiktok}}</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.mastodon">
+				<source>Mastodon</source>
+			</trans-unit>
+			<trans-unit id="settings.vars.mastodon.description">
+				<source>Full profile URL, e.g. https://www.mastodon.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{mastodon}}</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.jsonLd">
+				<source>Output JSON-LD (schema.org)</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.jsonLd.description">
+				<source>Adds structured data with name, address, contact, opening hours and social profiles to the page head of every page. Requires "Company". Disable it if another extension already outputs LocalBusiness/Organization data.</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.jsonLdType">
+				<source>JSON-LD type</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.jsonLdType.description">
+				<source>schema.org type, e.g. LocalBusiness, Organization, ProfessionalService, Store, Restaurant, Dentist, LegalService.</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.translations">
+				<source>Translations of the variables</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.translations.description">
+				<source>Values per language, separated by ";": language code, key, "=", value – e.g. "en.country = Germany; en.profession = Web developer". Overrides the value for that language in RTE, Fluid, the content element and JSON-LD (not in TypoScript constants). Opening hours: separate periods with "|".</source>
+			</trans-unit>
+			<trans-unit id="address.openingHours">
+				<source>Opening hours</source>
+			</trans-unit>
+			<trans-unit id="address.social">
+				<source>Social media</source>
+			</trans-unit>
+			<trans-unit id="hours.format">
+				<source>%s %s–%s</source>
+			</trans-unit>
+			<trans-unit id="day.Mo">
+				<source>Mon</source>
+			</trans-unit>
+			<trans-unit id="day.Tu">
+				<source>Tue</source>
+			</trans-unit>
+			<trans-unit id="day.We">
+				<source>Wed</source>
+			</trans-unit>
+			<trans-unit id="day.Th">
+				<source>Thu</source>
+			</trans-unit>
+			<trans-unit id="day.Fr">
+				<source>Fri</source>
+			</trans-unit>
+			<trans-unit id="day.Sa">
+				<source>Sat</source>
+			</trans-unit>
+			<trans-unit id="day.Su">
+				<source>Sun</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.vcard">
+				<source>Show "Save contact" (vCard)</source>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.vcard.description">
+				<source>Content element "Address": link that downloads the contact as .vcf file (name, company, profession, address, phone, fax, email, website, social profiles) – for the address book on phone and computer. Generated on the page, no extra request.</source>
+			</trans-unit>
+			<trans-unit id="address.vcard">
+				<source>Save contact</source>
 			</trans-unit>
 		</body>
 	</file>

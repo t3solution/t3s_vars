@@ -29,6 +29,6 @@ final class ParseFuncReplacer
     #[AsAllowedCallable]
     public function replace(mixed $content, array $conf, ServerRequestInterface $request): string
     {
-        return $this->variableService->replace((string)$content, $request->getAttribute('site'), $this->cObj);
+        return $this->variableService->replace((string)$content, $request->getAttribute('site'), $this->cObj, $request->getAttribute('language'));
     }
 }

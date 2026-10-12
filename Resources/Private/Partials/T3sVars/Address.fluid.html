@@ -1,9 +1,11 @@
 <html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <f:asset.css identifier="t3s-vars-contact" href="EXT:t3s_vars/Resources/Public/Css/contact.css" />
-<address class="t3s-address{f:if(condition: varsIcons, then: ' t3s-address--icons')}" itemscope itemtype="https://schema.org/Organization">
+<address class="t3s-address{f:if(condition: varsIcons, then: ' t3s-address--icons')}" itemscope itemtype="https://schema.org/{varsConfig.schemaType}">
 	<f:render partial="T3sVars/Parts" section="Identity" arguments="{_all}" />
 	<f:render partial="T3sVars/Parts" section="Postal" arguments="{_all}" />
 	<f:render partial="T3sVars/Parts" section="Contact" arguments="{vars: vars, varsLinked: varsLinked, varsIcons: varsIcons, varsConfig: varsConfig, withRoute: 1}" />
+	<f:render partial="T3sVars/Parts" section="Hours" arguments="{_all}" />
+	<f:render partial="T3sVars/Parts" section="Social" arguments="{_all}" />
 	<f:render partial="T3sVars/Parts" section="Vat" arguments="{_all}" />
 </address>
 </html>

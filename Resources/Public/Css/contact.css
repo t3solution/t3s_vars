@@ -39,6 +39,55 @@
   flex-shrink: 0;
 }
 
+/* opening hours: label or icon, then one line per period */
+.t3s-address__hours-lines,
+.t3s-address__hours-line {
+  display: block;
+}
+
+.t3s-address__hours-label {
+  display: block;
+}
+
+.t3s-address--icons .t3s-address__hours .t3s-address__item {
+  align-items: flex-start;
+}
+
+.t3s-address--icons .t3s-address__hours svg.t3s-icon {
+  margin-top: .3em;
+}
+
+/* social media links */
+.t3s-address__social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: .5rem 1.25rem;
+}
+
+.t3s-address .t3s-address__social-link--icon {
+  display: inline-flex;
+  text-decoration: none;
+}
+
+.t3s-address .t3s-address__social-link--icon svg.t3s-icon {
+  width: 1.35em;
+  height: 1.35em;
+  margin: 0;
+}
+
+.t3s-visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
 /* keep phone numbers on one line */
 .t3s-address [itemprop="telephone"],
 .t3s-address [itemprop="faxNumber"] {
@@ -136,7 +185,8 @@
 .t3s-contact__block .t3s-address__profession,
 .t3s-contact__block [itemprop="address"],
 .t3s-contact__block .t3s-address__vat,
-.t3s-contact__block .t3s-address__contact {
+.t3s-contact__block .t3s-address__contact,
+.t3s-contact__block .t3s-address__hours {
   color: var(--t3s-contact-muted);
 }
 

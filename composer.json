@@ -1,7 +1,7 @@
 {
     "name": "t3s/vars",
     "type": "typo3-cms-extension",
-    "description": "Global variables for TYPO3 v14: maintain company, address, phone, email etc. once as site settings and use them as {{placeholders}} in RTE, Fluid and TypoScript. CKEditor 5 dropdown, automatic tel/mailto/URL links and an \"Address\" content element with schema.org markup and optional Google Maps (route button, map with two-click privacy).",
+    "description": "Global variables for TYPO3 v14: maintain company, address, phone, email etc. once as site settings and use them as {{placeholders}} in RTE, Fluid and TypoScript. CKEditor 5 dropdown, automatic tel/mailto/URL links and an \"Address\" content element with schema.org markup, opening hours, social media links, vCard download and optional Google Maps (route button, map with two-click privacy). Optional JSON-LD and per-language values.",
     "license": "GPL-2.0-or-later",
     "keywords": [
         "TYPO3 CMS",
@@ -39,7 +39,11 @@
     },
     "extra": {
         "typo3/cms": {
-            "extension-key": "t3s_vars"
+            "extension-key": "t3s_vars",
+            "version": "1.0.0",
+            "Package": {
+                "providesPackages": {}
+            }
         }
     },
     "support": {

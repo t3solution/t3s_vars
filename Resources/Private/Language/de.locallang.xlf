@@ -8,8 +8,8 @@
 				<target>Globale Variablen</target>
 			</trans-unit>
 			<trans-unit id="category.t3sVars">
-				<source>Variables: links</source>
-				<target>Variablen: Verlinkung</target>
+				<source>Variables: options</source>
+				<target>Variablen: Optionen</target>
 			</trans-unit>
 			<trans-unit id="settings.vars.company">
 				<source>Company</source>
@@ -64,8 +64,8 @@
 				<target>Schlüssel als URL-Link</target>
 			</trans-unit>
 			<trans-unit id="settings.t3sVars.urlKeys.description">
-				<source>Comma-separated keys rendered as URL link, e.g. website. Values without https:// get it added automatically.</source>
-				<target>Kommagetrennte Schlüssel, die als URL-Link ausgegeben werden, z. B. website. Werte ohne https:// werden automatisch ergänzt.</target>
+				<source>Comma-separated keys rendered as URL link, e.g. website and the social media keys. Values without https:// get it added automatically.</source>
+				<target>Kommagetrennte Schlüssel, die als URL-Link ausgegeben werden, z. B. website und die Social-Media-Schlüssel. Werte ohne https:// werden automatisch ergänzt.</target>
 			</trans-unit>
 			<trans-unit id="rte.label">
 				<source>Variables</source>
@@ -258,6 +258,158 @@
 			<trans-unit id="field.layout.description">
 				<source>Layouts with map need the Google Maps embed URL in the site settings (Sites &gt; Setup &gt; Edit settings &gt; Variables: links &gt; "Google Maps embed URL (iframe src)", t3sVars.mapsEmbed). Without it no map is shown. The route button uses "Google Maps / Business profile link" (vars.maps).</source>
 				<target>Layouts mit Karte benötigen die Google-Maps-Einbettungs-URL in den Site Settings (Sites &gt; Setup &gt; Settings bearbeiten &gt; Variablen: Verlinkung &gt; „Google-Maps-Einbettungs-URL (iframe src)“, t3sVars.mapsEmbed). Ohne sie wird keine Karte angezeigt. Der Routen-Button nutzt „Google-Maps- / Business-Profil-Link“ (vars.maps).</target>
+			</trans-unit>
+			<trans-unit id="category.varsSocial">
+				<source>Global variables: social media</source>
+				<target>Globale Variablen: Social Media</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.openingHours">
+				<source>Opening hours</source>
+				<target>Öffnungszeiten</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.openingHours.description">
+				<source>Periods in schema.org format, separated by ";" – e.g. "Mo-Fr 08:00-17:00; Sa 09:00-12:00" (days: Mo Tu We Th Fr Sa Su). Shown localized ("Mon–Fri 08:00–17:00") and used for JSON-LD. Other entries (e.g. "by appointment") are shown as text. Placeholder: {{openingHours}}</source>
+				<target>Zeiträume im schema.org-Format, getrennt durch „;“ – z. B. „Mo-Fr 08:00-17:00; Sa 09:00-12:00“ (Tage: Mo Tu We Th Fr Sa Su). Wird übersetzt angezeigt („Mo–Fr 08:00–17:00 Uhr“) und für JSON-LD genutzt. Andere Einträge (z. B. „Termine nach Vereinbarung“) erscheinen als Text. Platzhalter: {{openingHours}}</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.facebook">
+				<source>Facebook</source>
+				<target>Facebook</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.facebook.description">
+				<source>Full profile URL, e.g. https://www.facebook.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{facebook}}</source>
+				<target>Vollständige Profil-URL, z. B. https://www.facebook.com/… Erscheint als Icon-Link im Inhaltselement „Adresse“ und als sameAs im JSON-LD. Platzhalter: {{facebook}}</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.instagram">
+				<source>Instagram</source>
+				<target>Instagram</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.instagram.description">
+				<source>Full profile URL, e.g. https://www.instagram.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{instagram}}</source>
+				<target>Vollständige Profil-URL, z. B. https://www.instagram.com/… Erscheint als Icon-Link im Inhaltselement „Adresse“ und als sameAs im JSON-LD. Platzhalter: {{instagram}}</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.linkedin">
+				<source>LinkedIn</source>
+				<target>LinkedIn</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.linkedin.description">
+				<source>Full profile URL, e.g. https://www.linkedin.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{linkedin}}</source>
+				<target>Vollständige Profil-URL, z. B. https://www.linkedin.com/… Erscheint als Icon-Link im Inhaltselement „Adresse“ und als sameAs im JSON-LD. Platzhalter: {{linkedin}}</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.xing">
+				<source>XING</source>
+				<target>XING</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.xing.description">
+				<source>Full profile URL, e.g. https://www.xing.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{xing}}</source>
+				<target>Vollständige Profil-URL, z. B. https://www.xing.com/… Erscheint als Icon-Link im Inhaltselement „Adresse“ und als sameAs im JSON-LD. Platzhalter: {{xing}}</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.youtube">
+				<source>YouTube</source>
+				<target>YouTube</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.youtube.description">
+				<source>Full profile URL, e.g. https://www.youtube.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{youtube}}</source>
+				<target>Vollständige Profil-URL, z. B. https://www.youtube.com/… Erscheint als Icon-Link im Inhaltselement „Adresse“ und als sameAs im JSON-LD. Platzhalter: {{youtube}}</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.x">
+				<source>X (Twitter)</source>
+				<target>X (Twitter)</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.x.description">
+				<source>Full profile URL, e.g. https://www.x.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{x}}</source>
+				<target>Vollständige Profil-URL, z. B. https://www.x.com/… Erscheint als Icon-Link im Inhaltselement „Adresse“ und als sameAs im JSON-LD. Platzhalter: {{x}}</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.tiktok">
+				<source>TikTok</source>
+				<target>TikTok</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.tiktok.description">
+				<source>Full profile URL, e.g. https://www.tiktok.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{tiktok}}</source>
+				<target>Vollständige Profil-URL, z. B. https://www.tiktok.com/… Erscheint als Icon-Link im Inhaltselement „Adresse“ und als sameAs im JSON-LD. Platzhalter: {{tiktok}}</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.mastodon">
+				<source>Mastodon</source>
+				<target>Mastodon</target>
+			</trans-unit>
+			<trans-unit id="settings.vars.mastodon.description">
+				<source>Full profile URL, e.g. https://www.mastodon.com/… Shown as icon link in the content element "Address" and used as sameAs in JSON-LD. Placeholder: {{mastodon}}</source>
+				<target>Vollständige Profil-URL, z. B. https://www.mastodon.com/… Erscheint als Icon-Link im Inhaltselement „Adresse“ und als sameAs im JSON-LD. Platzhalter: {{mastodon}}</target>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.jsonLd">
+				<source>Output JSON-LD (schema.org)</source>
+				<target>JSON-LD ausgeben (schema.org)</target>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.jsonLd.description">
+				<source>Adds structured data with name, address, contact, opening hours and social profiles to the page head of every page. Requires "Company". Disable it if another extension already outputs LocalBusiness/Organization data.</source>
+				<target>Fügt strukturierte Daten mit Name, Adresse, Kontakt, Öffnungszeiten und Social-Media-Profilen in den Seitenkopf (head) jeder Seite ein. Benötigt „Firma“. Abschalten, wenn bereits eine andere Extension LocalBusiness-/Organization-Daten ausgibt.</target>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.jsonLdType">
+				<source>JSON-LD type</source>
+				<target>JSON-LD-Typ</target>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.jsonLdType.description">
+				<source>schema.org type, e.g. LocalBusiness, Organization, ProfessionalService, Store, Restaurant, Dentist, LegalService.</source>
+				<target>schema.org-Typ, z. B. LocalBusiness, Organization, ProfessionalService, Store, Restaurant, Dentist, LegalService.</target>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.translations">
+				<source>Translations of the variables</source>
+				<target>Übersetzungen der Variablen</target>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.translations.description">
+				<source>Values per language, separated by ";": language code, key, "=", value – e.g. "en.country = Germany; en.profession = Web developer". Overrides the value for that language in RTE, Fluid, the content element and JSON-LD (not in TypoScript constants). Opening hours: separate periods with "|".</source>
+				<target>Werte pro Sprache, getrennt durch „;“: Sprachcode, Schlüssel, „=“, Wert – z. B. „en.country = Germany; en.profession = Web developer“. Überschreibt den Wert für diese Sprache im RTE, in Fluid, im Inhaltselement und im JSON-LD (nicht in TypoScript-Konstanten). Öffnungszeiten: Zeiträume mit „|“ trennen.</target>
+			</trans-unit>
+			<trans-unit id="address.openingHours">
+				<source>Opening hours</source>
+				<target>Öffnungszeiten</target>
+			</trans-unit>
+			<trans-unit id="address.social">
+				<source>Social media</source>
+				<target>Social Media</target>
+			</trans-unit>
+			<trans-unit id="hours.format">
+				<source>%s %s–%s</source>
+				<target>%s %s–%s Uhr</target>
+			</trans-unit>
+			<trans-unit id="day.Mo">
+				<source>Mon</source>
+				<target>Mo</target>
+			</trans-unit>
+			<trans-unit id="day.Tu">
+				<source>Tue</source>
+				<target>Di</target>
+			</trans-unit>
+			<trans-unit id="day.We">
+				<source>Wed</source>
+				<target>Mi</target>
+			</trans-unit>
+			<trans-unit id="day.Th">
+				<source>Thu</source>
+				<target>Do</target>
+			</trans-unit>
+			<trans-unit id="day.Fr">
+				<source>Fri</source>
+				<target>Fr</target>
+			</trans-unit>
+			<trans-unit id="day.Sa">
+				<source>Sat</source>
+				<target>Sa</target>
+			</trans-unit>
+			<trans-unit id="day.Su">
+				<source>Sun</source>
+				<target>So</target>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.vcard">
+				<source>Show "Save contact" (vCard)</source>
+				<target>„Kontakt speichern“ anzeigen (vCard)</target>
+			</trans-unit>
+			<trans-unit id="settings.t3sVars.vcard.description">
+				<source>Content element "Address": link that downloads the contact as .vcf file (name, company, profession, address, phone, fax, email, website, social profiles) – for the address book on phone and computer. Generated on the page, no extra request.</source>
+				<target>Inhaltselement „Adresse“: Link, der den Kontakt als .vcf-Datei herunterlädt (Name, Firma, Beruf, Adresse, Telefon, Fax, E-Mail, Website, Social-Media-Profile) – fürs Adressbuch auf Handy und Computer. Wird direkt in der Seite erzeugt, ohne zusätzlichen Request.</target>
+			</trans-unit>
+			<trans-unit id="address.vcard">
+				<source>Save contact</source>
+				<target>Kontakt speichern</target>
 			</trans-unit>
 		</body>
 	</file>

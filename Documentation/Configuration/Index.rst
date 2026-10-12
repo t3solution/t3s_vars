@@ -147,6 +147,34 @@ available as placeholder ``{{<key>}}``.
     Share link of your Google Business profile, used for the button
     "Plan route on Google Maps". See :ref:`configuration-google-maps`.
 
+..  confval:: vars.openingHours
+    :name: vars-openinghours
+    :type: text
+    :default: ''
+
+    Opening hours in schema.org format, periods separated by ``;``, e.g.
+    ``Mo-Fr 08:00-17:00; Sa 09:00-12:00``. See
+    :ref:`configuration-opening-hours`. Placeholder ``{{openingHours}}``.
+
+..  _configuration-social:
+
+Social media
+------------
+
+Category :guilabel:`Global variables: social media`. Each setting takes the
+full profile URL; only ``http(s)`` URLs are used.
+
+..  confval:: vars.facebook
+    :name: vars-facebook
+    :type: string
+    :default: ''
+
+    Also available: ``vars.instagram``, ``vars.linkedin``, ``vars.xing``,
+    ``vars.youtube``, ``vars.x``, ``vars.tiktok``, ``vars.mastodon``.
+    Shown as icon links in the content element "Address" and listed as
+    ``sameAs`` in the JSON-LD. Placeholders ``{{facebook}}`` etc. are rendered
+    as links.
+
 ..  _configuration-custom-variables:
 
 Custom variables
@@ -159,11 +187,11 @@ the RTE dropdown. Define it in your own site set:
     :caption: EXT:my_extension/Configuration/Sets/MySet/settings.definitions.yaml
 
     settings:
-      vars.opening:
-        label: 'Opening hours'
+      vars.register:
+        label: 'Commercial register'
         category: vars
         type: string
-        default: 'Mon–Fri 8am–4pm'
+        default: ''
 
 Nested keys are possible: ``vars.office.phone`` → ``{{office.phone}}``.
 
@@ -172,7 +200,7 @@ Nested keys are possible: ``vars.office.phone`` → ``{{office.phone}}``.
 Links
 =====
 
-Category :guilabel:`Variables: links`. Comma-separated lists of variable
+Category :guilabel:`Variables: options`. Comma-separated lists of variable
 keys that are rendered as links.
 
 ..  confval:: t3sVars.telKeys
@@ -193,7 +221,7 @@ keys that are rendered as links.
 ..  confval:: t3sVars.urlKeys
     :name: t3svars-urlkeys
     :type: string
-    :default: 'website'
+    :default: 'website,facebook,instagram,linkedin,xing,youtube,x,tiktok,mastodon'
 
     Rendered as URL link, opening in a new tab
     (``target="_blank" rel="noopener"``). Values without scheme get ``https://``.
@@ -256,6 +284,99 @@ Only ``http(s)`` URLs are accepted for :confval:`vars-maps` and
     Use identical name, address and phone (NAP) on the website and in the
     Google Business profile. Together with the profile link this is a
     supporting local SEO signal – not a ranking guarantee.
+
+..  _configuration-opening-hours:
+
+Opening hours
+=============
+
+Periods use the schema.org format: days ``Mo Tu We Th Fr Sa Su``, ranges
+with ``-``, lists with ``,`` and a time range ``HH:MM-HH:MM``. Separate
+the periods with ``;`` – the settings editor shows a single-line field;
+line breaks in :file:`settings.yaml` work as well.
+
+..  code-block:: yaml
+    :caption: config/sites/<site>/settings.yaml
+
+    vars:
+      openingHours: 'Mo-Fr 08:00-17:00; Sa 09:00-12:00; By appointment'
+
+The frontend shows the periods in the page language ("Mon–Fri 08:00–17:00",
+"Mo–Fr 08:00–17:00 Uhr"). Entries in another format, such as
+"By appointment", are shown as text and left out of the structured data.
+
+..  _configuration-translations:
+
+Multilingual sites
+==================
+
+Site settings apply to all languages of a site. Values that differ per
+language are maintained in one setting:
+
+..  confval:: t3sVars.translations
+    :name: t3svars-translations
+    :type: text
+    :default: ''
+
+    Entries separated by ``;``: language code, key, ``=``, value.
+
+    ..  code-block:: text
+
+        en.country = Germany; en.profession = Web developer; fr.country = Allemagne
+
+    The language code is taken from the locale of the site language
+    (``en`` for ``en_US.UTF-8``). Translations apply to placeholders,
+    ViewHelpers, the content element and the JSON-LD – not to TypoScript
+    constants and ``{site.settings.vars.*}``. Separate the periods of
+    translated opening hours with ``|``:
+    ``en.openingHours = Mo-Fr 08:00-17:00 | By appointment``.
+
+..  _configuration-json-ld:
+
+JSON-LD
+=======
+
+..  confval:: t3sVars.jsonLd
+    :name: t3svars-jsonld
+    :type: bool
+    :default: false
+
+    Add schema.org structured data to the ``<head>`` of every page: name,
+    URL, phone, fax, email, VAT ID, address, opening hours, map link and
+    social profiles (``sameAs``). Requires :confval:`vars-company`. The script
+    is inserted before ``</head>`` and works with ``PAGE`` and ``PAGEVIEW``.
+    Disable it if another extension already outputs ``LocalBusiness`` or
+    ``Organization`` data.
+
+..  confval:: t3sVars.jsonLdType
+    :name: t3svars-jsonldtype
+    :type: string
+    :default: 'LocalBusiness'
+
+    schema.org type, e.g. ``Organization``, ``ProfessionalService``,
+    ``Store``, ``Restaurant``, ``Dentist``. Also used for the microdata of
+    the content element "Address".
+
+..  tip::
+    Check the output with Google's
+    `Rich Results Test <https://search.google.com/test/rich-results>`__.
+
+..  _configuration-vcard:
+
+vCard
+=====
+
+..  confval:: t3sVars.vcard
+    :name: t3svars-vcard
+    :type: bool
+    :default: true
+
+    Show the link :guilabel:`Save contact` in the content element "Address".
+    It downloads the contact as ``.vcf`` (vCard 3.0) with name, company,
+    profession, address, phone, fax, email, website and social profiles.
+    The file is embedded in the link as data URL – no extra request and no
+    server route. The file name is derived from the company, e.g.
+    :file:`typo3-association.vcf`.
 
 ..  _configuration-icons:
 

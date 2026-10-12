@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'T3S Vars - Global variables',
-    'description' => 'Global variables for TYPO3 v14: maintain company, address, phone, email etc. once as site settings and use them as {{placeholders}} in RTE, Fluid and TypoScript. CKEditor 5 dropdown, automatic tel/mailto/URL links and an "Address" content element with schema.org markup and optional Google Maps (route button, map with two-click privacy).',
+    'description' => 'Global variables for TYPO3 v14: maintain company, address, phone, email etc. once as site settings and use them as {{placeholders}} in RTE, Fluid and TypoScript. CKEditor 5 dropdown, automatic tel/mailto/URL links and an "Address" content element with schema.org markup, opening hours, social media links, vCard download and optional Google Maps (route button, map with two-click privacy). Optional JSON-LD and per-language values.',
     'category' => 'fe',
     'state' => 'stable',
     'author' => 'Helmut Hackbarth',

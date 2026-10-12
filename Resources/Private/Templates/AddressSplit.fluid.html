@@ -22,7 +22,7 @@
 			<h2 class="t3s-contact__title">{data.header}</h2>
 		</f:if>
 
-		<address class="t3s-contact__nap t3s-address{f:if(condition: varsIcons, then: ' t3s-address--icons')}" itemscope itemtype="https://schema.org/Organization">
+		<address class="t3s-contact__nap t3s-address{f:if(condition: varsIcons, then: ' t3s-address--icons')}" itemscope itemtype="https://schema.org/{varsConfig.schemaType}">
 			<f:if condition="{vars.profession} || {vars.person} || {vars.company} || {vars.street} || {vars.addressAddition} || {vars.zip} || {vars.city} || {vars.country} || {vars.vatId}">
 				<div class="t3s-contact__block">
 					<strong class="t3s-contact__label"><f:translate key="{lll}contact.headquarters" /></strong>
@@ -31,10 +31,12 @@
 					<f:render partial="T3sVars/Parts" section="Vat" arguments="{_all}" />
 				</div>
 			</f:if>
-			<f:if condition="{vars.phone} || {vars.fax} || {vars.email} || {vars.website}">
+			<f:if condition="{vars.phone} || {vars.fax} || {vars.email} || {vars.website} || {varsHours} || {varsSocial} || {varsConfig.vcard}">
 				<div class="t3s-contact__block">
 					<strong class="t3s-contact__label"><f:translate key="{lll}contact.direct" /></strong>
 					<f:render partial="T3sVars/Parts" section="Contact" arguments="{vars: vars, varsLinked: varsLinked, varsIcons: varsIcons, varsConfig: varsConfig, withRoute: 0}" />
+					<f:render partial="T3sVars/Parts" section="Hours" arguments="{_all}" />
+					<f:render partial="T3sVars/Parts" section="Social" arguments="{_all}" />
 				</div>
 			</f:if>
 		</address>
